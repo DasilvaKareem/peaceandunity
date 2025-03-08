@@ -1,12 +1,32 @@
 import { getContract } from "thirdweb";
-import { avalancheFuji } from "thirdweb/chains";
+import { ethereum } from "thirdweb/chains";
 import { client } from "../consts/client";
-import { balanceOf as balanceOfERC721 } from "thirdweb/extensions/erc721";
-import { balanceOf as balanceOfERC20 } from "thirdweb/extensions/erc20";
+import { balanceOf } from "thirdweb/extensions/erc20";
 
-export async function hasAccess(address: string): Promise<boolean> {
-  return await example_hasSomeErc721Tokens(address);
-  // return await example_hasSomeErc20Tokens(address);
+const UNITY_TOKEN_ADDRESS = "YOUR_DEPLOYED_TOKEN_ADDRESS" as const; // Replace after deployment
+const REQUIRED_BALANCE = 100n; // Minimum tokens required (100 UNITY)
+
+export async function hasAccess(address: `0x${string}`): Promise<boolean> {
+  try {
+    const unityTokenContract = getContract({
+      address: UNITY_TOKEN_ADDRESS,
+      chain: ethereum, // Using imported chain constant instead of string
+      client,
+    });
+
+    const ownedBalance = await balanceOf({
+      contract: unityTokenContract,
+      address, // address is already typed as `0x${string}`
+    });
+
+    console.log({ ownedBalance });
+
+    // Check if user owns at least REQUIRED_BALANCE tokens
+    return ownedBalance >= REQUIRED_BALANCE;
+  } catch (error) {
+    console.error("Error checking token balance:", error);
+    return false;
+  }
 }
 
 //
@@ -43,7 +63,7 @@ async function example_hasSomeErc721Tokens(address: string) {
     client,
   });
 
-  const ownedBalance = await balanceOfERC721({
+  const ownedBalance = await balanceOfERC20({
     contract: erc721Contract,
     owner: address,
   });

@@ -14,7 +14,9 @@ import { GatedContent } from "./GatedContent";
  * If `TRUE`: The users can access the page's content.
  */
 export default async function GatedPage() {
-  const jwt = cookies().get("jwt");
+  const cookieStore = cookies();
+  const jwt = cookieStore.get("jwt");
+  
   if (!jwt?.value) {
     return <MustLogin />;
   }
@@ -27,12 +29,14 @@ export default async function GatedPage() {
 
   // If the user has logged in, get their wallet address
   const address = authResult.parsedJWT.sub;
-  console.log({ paredResult: authResult.parsedJWT });
+  console.log({ parsedResult: authResult.parsedJWT });
   if (!address) throw new Error("could not get wallet address");
 
-  // This is the part that we do the gating condition.
-  // If pass -> Allow them to access the page.
-  const _hasAccess = await hasAccess(address);
+  // Ensure address is in the correct format
+  const formattedAddress = address.toLowerCase() as `0x${string}`;
+
+  // Check if user owns enough UNITY tokens
+  const _hasAccess = await hasAccess(formattedAddress);
   if (!_hasAccess) return <NotAllowed />;
 
   // Finally! We can load the gated content for them now
@@ -48,10 +52,15 @@ const MustLogin = () => (
   </div>
 );
 
-const reason = "you do not own any NFT"; // replace this with your own reason
+const reason = "you do not own enough $UNITY tokens. You need at least 100 $UNITY tokens to access this page.";
 
 const NotAllowed = () => (
   <div className="text-center">
-    You are logged in but you do not have access to this page because {reason}
+    <div>
+      You are logged in but you do not have access to this page because {reason}
+    </div>
+    <a href="/token-launch" className="underline mt-4 block">
+      Get $UNITY Tokens
+    </a>
   </div>
 );
