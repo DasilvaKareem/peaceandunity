@@ -140,6 +140,158 @@ export default function LandingPage() {
         </div>
       </div>
 
+      {/* Volunteer Map Section */}
+      <div className="py-16 px-6 md:px-12 bg-gradient-to-br from-purple-50 to-orange-50">
+        <h2 className="text-3xl font-bold text-center text-[#7C4DFF] mb-12">Global Volunteer Network</h2>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          {/* North America */}
+          <div className="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer h-[400px] overflow-hidden">
+            <div className="h-48 overflow-hidden">
+              <img 
+                src="/images/north-america.jpg" 
+                alt="North American landscape with mountains and forests" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-[#FFAB40] mb-2">North America</h3>
+              <p className="text-gray-600 mb-4">Empowering communities through grassroots initiatives and youth engagement.</p>
+            </div>
+            <div className="absolute inset-0 bg-[#FFAB40] bg-opacity-90 p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center">
+              <h4 className="text-2xl font-bold mb-4">Active Volunteers: 2,500+</h4>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li>Youth mentorship programs</li>
+                <li>Environmental conservation</li>
+                <li>Community art projects</li>
+                <li>Peace education workshops</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* South America */}
+          <div className="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer h-[400px] overflow-hidden">
+            <div className="h-48 overflow-hidden">
+              <img 
+                src="/images/south-america.jpg" 
+                alt="South American rainforest and indigenous culture" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-[#00E5FF] mb-2">South America</h3>
+              <p className="text-gray-600 mb-4">Preserving indigenous wisdom while building sustainable futures.</p>
+            </div>
+            <div className="absolute inset-0 bg-[#00E5FF] bg-opacity-90 p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center">
+              <h4 className="text-2xl font-bold mb-4">Active Volunteers: 1,800+</h4>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li>Indigenous rights advocacy</li>
+                <li>Rainforest protection</li>
+                <li>Cultural exchange programs</li>
+                <li>Sustainable farming initiatives</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Europe */}
+          <div className="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer h-[400px] overflow-hidden">
+            <div className="h-48 overflow-hidden">
+              <img 
+                src="/images/europe.jpg" 
+                alt="European cultural heritage and modern cities" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-[#7C4DFF] mb-2">Europe</h3>
+              <p className="text-gray-600 mb-4">Bridging cultures through innovation and inclusive dialogue.</p>
+            </div>
+            <div className="absolute inset-0 bg-[#7C4DFF] bg-opacity-90 p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center">
+              <h4 className="text-2xl font-bold mb-4">Active Volunteers: 3,000+</h4>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li>Refugee support programs</li>
+                <li>Digital literacy training</li>
+                <li>Peace festivals</li>
+                <li>Cross-cultural dialogues</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Asia */}
+          <div className="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer h-[400px] overflow-hidden">
+            <div className="h-48 overflow-hidden">
+              <img 
+                src="/images/asia.jpg" 
+                alt="Asian temples and modern technology" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-[#FFAB40] mb-2">Asia</h3>
+              <p className="text-gray-600 mb-4">Harmonizing tradition with technological advancement.</p>
+            </div>
+            <div className="absolute inset-0 bg-[#FFAB40] bg-opacity-90 p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center">
+              <h4 className="text-2xl font-bold mb-4">Active Volunteers: 4,200+</h4>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li>Tech education initiatives</li>
+                <li>Rural development projects</li>
+                <li>Mental health awareness</li>
+                <li>Traditional arts preservation</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Africa */}
+          <div className="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer h-[400px] overflow-hidden">
+            <div className="h-48 overflow-hidden">
+              <img 
+                src="/images/africa.jpg" 
+                alt="African wildlife and community development" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-[#00E5FF] mb-2">Africa</h3>
+              <p className="text-gray-600 mb-4">Empowering communities through education and sustainable development.</p>
+            </div>
+            <div className="absolute inset-0 bg-[#00E5FF] bg-opacity-90 p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center">
+              <h4 className="text-2xl font-bold mb-4">Active Volunteers: 2,800+</h4>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li>Educational outreach</li>
+                <li>Clean water projects</li>
+                <li>Women empowerment programs</li>
+                <li>Digital skills training</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Australia/Oceania */}
+          <div className="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer h-[400px] overflow-hidden">
+            <div className="h-48 overflow-hidden">
+              <img 
+                src="/images/oceania.jpg" 
+                alt="Australian outback and Pacific islands" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-[#7C4DFF] mb-2">Australia/Oceania</h3>
+              <p className="text-gray-600 mb-4">Protecting marine life and preserving indigenous heritage.</p>
+            </div>
+            <div className="absolute inset-0 bg-[#7C4DFF] bg-opacity-90 p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center">
+              <h4 className="text-2xl font-bold mb-4">Active Volunteers: 1,500+</h4>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li>Marine conservation</li>
+                <li>Indigenous culture programs</li>
+                <li>Climate change initiatives</li>
+                <li>Youth leadership camps</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       {/* CTA Section */}
       <div className="py-16 px-6 md:px-12 bg-gradient-to-r from-[#7C4DFF] via-[#FFAB40] to-[#00E5FF]">
         <div className="max-w-3xl mx-auto text-center text-white">
