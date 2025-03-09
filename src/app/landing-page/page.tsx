@@ -373,6 +373,161 @@ export default function LandingPage() {
         </div>
       </div>
 
+      {/* Proposal Submission Section */}
+      <div className="py-16 px-6 md:px-12 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-[#7C4DFF] mb-4">Submit Your Peace Initiative</h2>
+          <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            Have an idea that could make a difference? Share your vision for peace, and let's make it happen together.
+          </p>
+
+          <div className="bg-gradient-to-br from-purple-50 to-orange-50 p-8 rounded-lg shadow-md">
+            <form className="space-y-6">
+              {/* Project Title */}
+              <div>
+                <label htmlFor="title" className="block text-lg font-semibold text-gray-700 mb-2">
+                  Initiative Title
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
+                  placeholder="Give your peace initiative a memorable name"
+                />
+              </div>
+
+              {/* Category Selection */}
+              <div>
+                <label htmlFor="category" className="block text-lg font-semibold text-gray-700 mb-2">
+                  Category
+                </label>
+                <select
+                  id="category"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
+                >
+                  <option value="">Select a category</option>
+                  <option value="education">Peace Education</option>
+                  <option value="community">Community Building</option>
+                  <option value="environment">Environmental Harmony</option>
+                  <option value="technology">Technology for Peace</option>
+                  <option value="arts">Arts & Culture</option>
+                  <option value="conflict">Conflict Resolution</option>
+                </select>
+              </div>
+
+              {/* Description */}
+              <div>
+                <label htmlFor="description" className="block text-lg font-semibold text-gray-700 mb-2">
+                  Initiative Description
+                </label>
+                <textarea
+                  id="description"
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
+                  placeholder="Describe your initiative and how it promotes peace (max 500 words)"
+                ></textarea>
+              </div>
+
+              {/* Impact & Goals */}
+              <div>
+                <label htmlFor="impact" className="block text-lg font-semibold text-gray-700 mb-2">
+                  Expected Impact
+                </label>
+                <textarea
+                  id="impact"
+                  rows={3}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
+                  placeholder="What positive change will your initiative create? How many people will it impact?"
+                ></textarea>
+              </div>
+
+              {/* Resource Requirements */}
+              <div>
+                <label htmlFor="resources" className="block text-lg font-semibold text-gray-700 mb-2">
+                  Required Resources
+                </label>
+                <input
+                  type="text"
+                  id="resources"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
+                  placeholder="Estimated funding needed (in USD)"
+                />
+              </div>
+
+              {/* Contact Information */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-lg font-semibold text-gray-700 mb-2">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
+                    placeholder="Full name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-lg font-semibold text-gray-700 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="text-center mt-8">
+                <button
+                  type="submit"
+                  className="inline-block px-8 py-4 bg-[#7C4DFF] text-white rounded-full text-lg font-semibold hover:bg-[#FFAB40] transition-colors"
+                >
+                  Submit Proposal
+                </button>
+                <p className="mt-4 text-sm text-gray-600">
+                  By submitting, you agree to our community guidelines and terms of service.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          {/* Proposal Tips */}
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-[#FFAB40] rounded-full flex items-center justify-center text-white mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Be Specific</h3>
+              <p className="text-gray-600">Clear goals and measurable outcomes make stronger proposals</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-[#7C4DFF] rounded-full flex items-center justify-center text-white mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Think Community</h3>
+              <p className="text-gray-600">Show how your initiative brings people together</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-[#00E5FF] rounded-full flex items-center justify-center text-white mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Be Realistic</h3>
+              <p className="text-gray-600">Start small, think big, and plan for sustainable impact</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* CTA Section */}
       <div className="py-16 px-6 md:px-12 bg-gradient-to-r from-[#7C4DFF] via-[#FFAB40] to-[#00E5FF]">
         <div className="max-w-3xl mx-auto text-center text-white">
