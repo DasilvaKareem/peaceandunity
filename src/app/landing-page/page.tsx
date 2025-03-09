@@ -68,40 +68,121 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Features */}
-      <div className="py-16 px-6 md:px-12 bg-gray-50">
-        <h2 className="text-3xl font-bold text-center text-[#7C4DFF] mb-12">Our Features</h2>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Feature 1 */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-bold text-[#7C4DFF] mb-4">Empowering Global Voices</h3>
-            <p className="text-gray-700">
-              $UNITY is our governance token that grants you a direct say in how we fund peace initiatives. Stake your tokens, vote on proposals, and earn rewards for actively shaping our collective future.
-            </p>
-          </div>
+      {/* How We Work Towards Peace */}
+      <div className="py-16 px-6 md:px-12 bg-gradient-to-br from-purple-100 to-orange-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-[#7C4DFF] mb-4">How We Work Towards Peace</h2>
+          <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            Our approach combines grassroots activism with blockchain technology to create lasting positive change.
+          </p>
           
-          {/* Feature 2 */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-bold text-[#FFAB40] mb-4">Fair & Transparent Voting</h3>
-            <p className="text-gray-700">
-              Every major decision—from funding local community projects to setting strategic priorities—is decided by the community. Propose, debate, and vote using our intuitive on-chain tools.
-            </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Step 1 */}
+            <div className="bg-white rounded-lg p-6 shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-12 h-12 bg-[#FFAB40] rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">1</div>
+              <h3 className="text-xl font-bold text-[#FFAB40] mb-3">Community Proposals</h3>
+              <p className="text-gray-600">
+                Members submit ideas for peace initiatives through our decentralized proposal system. Each voice matters in shaping our collective action.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="bg-white rounded-lg p-6 shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-12 h-12 bg-[#7C4DFF] rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">2</div>
+              <h3 className="text-xl font-bold text-[#7C4DFF] mb-3">Democratic Voting</h3>
+              <p className="text-gray-600">
+                $UNITY token holders vote on proposals, ensuring transparent and fair decision-making in selecting which initiatives to fund.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="bg-white rounded-lg p-6 shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-12 h-12 bg-[#00E5FF] rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">3</div>
+              <h3 className="text-xl font-bold text-[#00E5FF] mb-3">Resource Allocation</h3>
+              <p className="text-gray-600">
+                Approved projects receive funding and support through smart contracts, ensuring efficient and transparent distribution of resources.
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div className="bg-white rounded-lg p-6 shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-12 h-12 bg-[#FFAB40] rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">4</div>
+              <h3 className="text-xl font-bold text-[#FFAB40] mb-3">Impact Tracking</h3>
+              <p className="text-gray-600">
+                We monitor and document the real-world impact of each initiative, sharing progress and learnings with our global community.
+              </p>
+            </div>
           </div>
-          
-          {/* Feature 3 */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-bold text-[#00E5FF] mb-4">Art for Impact</h3>
-            <p className="text-gray-700">
-              Support peace by collecting or creating unique NFTs with a hippie-chic vibe. Sales and royalties go directly toward funding social impact projects and sustaining the DAO's treasury.
-            </p>
+
+          {/* Impact Statistics */}
+          <div className="mt-16 mb-12">
+            <h3 className="text-2xl font-bold text-center text-[#7C4DFF] mb-8">Our Global Impact So Far</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {/* Projects Funded */}
+              <div className="text-center">
+                <div className="text-4xl font-bold text-[#FFAB40] mb-2">250+</div>
+                <div className="text-lg text-gray-600">Peace Projects<br />Funded</div>
+                <div className="mt-2 text-sm text-gray-500">Across 45 countries</div>
+              </div>
+
+              {/* Community Size */}
+              <div className="text-center">
+                <div className="text-4xl font-bold text-[#7C4DFF] mb-2">15,000+</div>
+                <div className="text-lg text-gray-600">Active DAO<br />Members</div>
+                <div className="mt-2 text-sm text-gray-500">From 120+ countries</div>
+              </div>
+
+              {/* Treasury */}
+              <div className="text-center">
+                <div className="text-4xl font-bold text-[#00E5FF] mb-2">$2.5M</div>
+                <div className="text-lg text-gray-600">Community<br />Treasury</div>
+                <div className="mt-2 text-sm text-gray-500">100% community-managed</div>
+              </div>
+
+              {/* Impact */}
+              <div className="text-center">
+                <div className="text-4xl font-bold text-[#FFAB40] mb-2">100K+</div>
+                <div className="text-lg text-gray-600">Lives<br />Impacted</div>
+                <div className="mt-2 text-sm text-gray-500">And growing daily</div>
+              </div>
+            </div>
+
+            {/* Key Achievements */}
+            <div className="mt-12 bg-white rounded-lg p-6 shadow-md">
+              <h4 className="text-xl font-bold text-center text-[#7C4DFF] mb-6">Recent Milestones</h4>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-full bg-[#FFAB40] flex items-center justify-center text-white flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600">Launched 50 youth peace education programs reaching 25,000 students</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-full bg-[#7C4DFF] flex items-center justify-center text-white flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600">Facilitated 30 cross-border cultural exchange initiatives</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-full bg-[#00E5FF] flex items-center justify-center text-white flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600">Established 15 community mediation centers in conflict zones</p>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          {/* Feature 4 */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-bold text-[#7C4DFF] mb-4">Global Gatherings & Workshops</h3>
-            <p className="text-gray-700">
-              Participate in real-world meetups, virtual hackathons, and interactive workshops led by activists and educators. Learn how decentralized tech can uplift communities and drive meaningful change.
-            </p>
+
+          <div className="mt-12 text-center">
+            <Link href="/governance" className="inline-block px-8 py-4 bg-[#7C4DFF] text-white rounded-full text-lg font-semibold hover:bg-[#FFAB40] transition-colors">
+              Learn About Our Process
+            </Link>
           </div>
         </div>
       </div>
