@@ -373,156 +373,159 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Proposal Submission Section */}
-      <div className="py-16 px-6 md:px-12 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-[#7C4DFF] mb-4">Submit Your Peace Initiative</h2>
+
+      {/* On-chain Voting Section */}
+      <div className="py-16 px-6 md:px-12 bg-gradient-to-br from-purple-100 to-orange-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-[#7C4DFF] mb-4">Active Proposals</h2>
           <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            Have an idea that could make a difference? Share your vision for peace, and let's make it happen together.
+            Shape the future of peace-building by voting on community proposals. Your voice matters in our collective journey.
           </p>
 
-          <div className="bg-gradient-to-br from-purple-50 to-orange-50 p-8 rounded-lg shadow-md">
-            <form className="space-y-6">
-              {/* Project Title */}
-              <div>
-                <label htmlFor="title" className="block text-lg font-semibold text-gray-700 mb-2">
-                  Initiative Title
-                </label>
-                <input
-                  type="text"
-                  id="title"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
-                  placeholder="Give your peace initiative a memorable name"
-                />
-              </div>
-
-              {/* Category Selection */}
-              <div>
-                <label htmlFor="category" className="block text-lg font-semibold text-gray-700 mb-2">
-                  Category
-                </label>
-                <select
-                  id="category"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
-                >
-                  <option value="">Select a category</option>
-                  <option value="education">Peace Education</option>
-                  <option value="community">Community Building</option>
-                  <option value="environment">Environmental Harmony</option>
-                  <option value="technology">Technology for Peace</option>
-                  <option value="arts">Arts & Culture</option>
-                  <option value="conflict">Conflict Resolution</option>
-                </select>
-              </div>
-
-              {/* Description */}
-              <div>
-                <label htmlFor="description" className="block text-lg font-semibold text-gray-700 mb-2">
-                  Initiative Description
-                </label>
-                <textarea
-                  id="description"
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
-                  placeholder="Describe your initiative and how it promotes peace (max 500 words)"
-                ></textarea>
-              </div>
-
-              {/* Impact & Goals */}
-              <div>
-                <label htmlFor="impact" className="block text-lg font-semibold text-gray-700 mb-2">
-                  Expected Impact
-                </label>
-                <textarea
-                  id="impact"
-                  rows={3}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
-                  placeholder="What positive change will your initiative create? How many people will it impact?"
-                ></textarea>
-              </div>
-
-              {/* Resource Requirements */}
-              <div>
-                <label htmlFor="resources" className="block text-lg font-semibold text-gray-700 mb-2">
-                  Required Resources
-                </label>
-                <input
-                  type="text"
-                  id="resources"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
-                  placeholder="Estimated funding needed (in USD)"
-                />
-              </div>
-
-              {/* Contact Information */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-lg font-semibold text-gray-700 mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
-                    placeholder="Full name"
-                  />
+          {/* Active Proposals */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Proposal 1 */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-bold text-[#7C4DFF]">Global Youth Peace Summit 2025</h3>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Active</span>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-lg font-semibold text-gray-700 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#7C4DFF] focus:border-transparent"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <div className="text-center mt-8">
-                <button
-                  type="submit"
-                  className="inline-block px-8 py-4 bg-[#7C4DFF] text-white rounded-full text-lg font-semibold hover:bg-[#FFAB40] transition-colors"
-                >
-                  Submit Proposal
-                </button>
-                <p className="mt-4 text-sm text-gray-600">
-                  By submitting, you agree to our community guidelines and terms of service.
+                <p className="text-gray-600 mb-4">
+                  A worldwide gathering of young peace advocates to share ideas, build networks, and create actionable plans for local peace initiatives.
                 </p>
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Requested Funding:</span>
+                    <span className="font-semibold">5,000 UNITY</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Voting Ends:</span>
+                    <span className="font-semibold">5 days left</span>
+                  </div>
+                  <div>
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="text-gray-600">Current Votes:</span>
+                      <span className="font-semibold">75% Yes</span>
+                    </div>
+                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-[#7C4DFF] rounded-full" 
+                        style={{width: '75%'}}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex space-x-3">
+                  <button className="flex-1 px-4 py-2 bg-[#7C4DFF] text-white rounded-lg hover:bg-[#6B42E0] transition-colors">
+                    Vote Yes
+                  </button>
+                  <button className="flex-1 px-4 py-2 border border-[#7C4DFF] text-[#7C4DFF] rounded-lg hover:bg-purple-50 transition-colors">
+                    Vote No
+                  </button>
+                </div>
               </div>
-            </form>
+            </div>
+
+            {/* Proposal 2 */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-bold text-[#7C4DFF]">Peace Through Art Initiative</h3>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Active</span>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Supporting artists in conflict zones to express their visions of peace through public murals and community art installations.
+                </p>
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Requested Funding:</span>
+                    <span className="font-semibold">3,500 UNITY</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Voting Ends:</span>
+                    <span className="font-semibold">3 days left</span>
+                  </div>
+                  <div>
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="text-gray-600">Current Votes:</span>
+                      <span className="font-semibold">82% Yes</span>
+                    </div>
+                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-[#7C4DFF] rounded-full" 
+                        style={{width: '82%'}}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex space-x-3">
+                  <button className="flex-1 px-4 py-2 bg-[#7C4DFF] text-white rounded-lg hover:bg-[#6B42E0] transition-colors">
+                    Vote Yes
+                  </button>
+                  <button className="flex-1 px-4 py-2 border border-[#7C4DFF] text-[#7C4DFF] rounded-lg hover:bg-purple-50 transition-colors">
+                    Vote No
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Proposal Tips */}
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-[#FFAB40] rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+          {/* Recently Completed Proposals */}
+          <div className="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h3 className="text-xl font-bold text-[#7C4DFF] mb-4">Recently Completed Proposals</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center py-3 border-b">
+                <div>
+                  <h4 className="font-semibold text-gray-800">Community Mediation Centers</h4>
+                  <p className="text-sm text-gray-600">Establishing conflict resolution centers in 5 cities</p>
+                </div>
+                <div className="text-right">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Passed</span>
+                  <p className="text-sm text-gray-600 mt-1">92% Yes</p>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Be Specific</h3>
-              <p className="text-gray-600">Clear goals and measurable outcomes make stronger proposals</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-[#7C4DFF] rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+              <div className="flex justify-between items-center py-3 border-b">
+                <div>
+                  <h4 className="font-semibold text-gray-800">Digital Peace Library</h4>
+                  <p className="text-sm text-gray-600">Online resource center for peace education</p>
+                </div>
+                <div className="text-right">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Passed</span>
+                  <p className="text-sm text-gray-600 mt-1">88% Yes</p>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Think Community</h3>
-              <p className="text-gray-600">Show how your initiative brings people together</p>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-[#00E5FF] rounded-full flex items-center justify-center text-white mx-auto mb-4">
+          </div>
+
+          {/* Voting Info */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-[#FFAB40] rounded-full flex items-center justify-center text-white mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Be Realistic</h3>
-              <p className="text-gray-600">Start small, think big, and plan for sustainable impact</p>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Secure Voting</h3>
+              <p className="text-gray-600">All votes are recorded on-chain, ensuring complete transparency and immutability</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-[#7C4DFF] rounded-full flex items-center justify-center text-white mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">7-Day Voting Period</h3>
+              <p className="text-gray-600">Each proposal has a 7-day voting window to ensure fair participation from all time zones</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-[#00E5FF] rounded-full flex items-center justify-center text-white mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Quadratic Voting</h3>
+              <p className="text-gray-600">Your voting power scales with the square root of your $UNITY tokens for fair representation</p>
             </div>
           </div>
         </div>
