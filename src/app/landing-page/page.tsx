@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-orange-50">
+    <div className="min-h-screen w-full bg-gradient-to-br from-purple-100 to-orange-50">
       {/* Navigation Bar */}
-      <nav className="flex justify-between items-center p-6 bg-white bg-opacity-80 backdrop-blur-sm">
+      <nav className="flex justify-between items-center p-6 bg-white bg-opacity-80 backdrop-blur-sm w-full">
         <div className="text-2xl font-bold text-[#7C4DFF]">Peace & Unity DAO</div>
         <div className="hidden md:flex space-x-6">
           <Link href="/about" className="text-gray-800 hover:text-[#FFAB40]">About</Link>
@@ -12,7 +12,7 @@ export default function LandingPage() {
           <Link href="/governance" className="text-gray-800 hover:text-[#FFAB40]">Governance</Link>
           <Link href="/marketplace" className="text-gray-800 hover:text-[#FFAB40]">Marketplace</Link>
           <Link href="/events" className="text-gray-800 hover:text-[#FFAB40]">Events</Link>
-          <Link href="/" className="px-4 py-2 bg-[#FFAB40] text-white rounded-lg hover:bg-[#7C4DFF] transition-colors">
+          <Link href="/join-dao" className="px-4 py-2 bg-[#FFAB40] text-white rounded-lg hover:bg-[#7C4DFF] transition-colors">
             Join Now
           </Link>
         </div>
@@ -23,9 +23,9 @@ export default function LandingPage() {
         </button>
       </nav>
 
-      {/* Hero Section */}
-      <div className="relative py-20 px-6 md:px-12 bg-gradient-to-r from-[#7C4DFF] via-[#FFAB40] to-[#00E5FF]">
-        <div className="max-w-4xl mx-auto text-center text-white">
+      {/* Hero Section - Full Width */}
+      <div className="w-full py-20 px-6 md:px-12 bg-gradient-to-r from-[#7C4DFF] via-[#FFAB40] to-[#00E5FF]">
+        <div className="w-full mx-auto text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Where Peace Meets the Blockchain</h1>
           <h2 className="text-xl md:text-2xl opacity-80 mb-8">
             Join a global community of dreamers, activists, and builders working together to spark positive change through decentralized collaboration.
@@ -33,7 +33,7 @@ export default function LandingPage() {
           <Link href="/join-dao" className="inline-block px-8 py-4 bg-[#FFAB40] text-white rounded-full text-lg font-semibold hover:bg-[#00E5FF] transition-colors">
             Join the DAO
           </Link>
-          <p className="mt-6 max-w-2xl mx-auto">
+          <p className="mt-6 max-w-4xl mx-auto">
             At Peace & Unity DAO, we believe world peace starts with each individual's willingness to connect, share, and empower communities. By harnessing the power of web3 technology, our DAO funds grassroot initiatives, rewards community-driven solutions, and uplifts voices around the globe.
           </p>
         </div>

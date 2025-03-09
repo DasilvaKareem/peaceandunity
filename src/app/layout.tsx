@@ -12,15 +12,17 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThirdwebProvider>
-          <div
+          <main
             style={{
               minHeight: "100vh",
-              display: "grid",
-              placeContent: "center",
+              width: "100%",
+              maxWidth: "1200px",
+              margin: "0 auto",
+              padding: "2rem",
             }}
           >
             {children}
-          </div>
+          </main>
         </ThirdwebProvider>
       </body>
     </html>

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -59,7 +59,7 @@ export default function JoinDaoPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-orange-50">
       {/* Navigation Bar */}
-      <nav className="flex justify-between items-center p-6 bg-white bg-opacity-80 backdrop-blur-sm">
+      <nav className="flex justify-between items-center p-6 bg-white bg-opacity-80 backdrop-blur-sm w-full">
         <Link href="/" className="text-2xl font-bold text-[#7C4DFF]">Peace & Unity DAO</Link>
         <div className="hidden md:flex space-x-6">
           <Link href="/about" className="text-gray-800 hover:text-[#FFAB40]">About</Link>
@@ -67,12 +67,20 @@ export default function JoinDaoPage() {
           <Link href="/governance" className="text-gray-800 hover:text-[#FFAB40]">Governance</Link>
           <Link href="/marketplace" className="text-gray-800 hover:text-[#FFAB40]">Marketplace</Link>
           <Link href="/events" className="text-gray-800 hover:text-[#FFAB40]">Events</Link>
+          <Link href="/join-dao" className="px-4 py-2 bg-[#FFAB40] text-white rounded-lg hover:bg-[#7C4DFF] transition-colors">
+            Join Now
+          </Link>
         </div>
+        <button className="md:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </nav>
 
-      {/* Page Header */}
-      <div className="relative py-16 px-6 md:px-12 bg-gradient-to-r from-[#7C4DFF] via-[#FFAB40] to-[#00E5FF]">
-        <div className="max-w-4xl mx-auto text-center text-white">
+      {/* Page Header - Full Width */}
+      <div className="w-full py-16 px-6 md:px-12 bg-gradient-to-r from-[#7C4DFF] via-[#FFAB40] to-[#00E5FF]">
+        <div className="w-full mx-auto text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Peace & Unity DAO</h1>
           <p className="text-xl opacity-80">
             Verify your Peace & Unity token ownership to join our community
@@ -80,8 +88,8 @@ export default function JoinDaoPage() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg -mt-8 relative z-10 mb-16">
+      {/* Main Content - Wider Container */}
+      <div className="w-full max-w-6xl mx-auto p-8 bg-white rounded-lg shadow-lg -mt-8 relative z-10 mb-16">
         <div className="bg-gradient-to-r from-purple-50 to-orange-50 p-6 rounded-lg mb-8 border border-[#7C4DFF]/20">
           <h2 className="text-2xl font-bold text-[#7C4DFF] mb-4">Token Verification</h2>
           <p className="text-gray-700 mb-4">To join our DAO, you need to hold at least 1 Peace & Unity token.</p>
@@ -171,9 +179,9 @@ export default function JoinDaoPage() {
         )}
       </div>
       
-      {/* Footer */}
-      <footer className="bg-[#2E2E2E] text-white py-12 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto">
+      {/* Footer - Full Width */}
+      <footer className="w-full bg-[#2E2E2E] text-white py-12 px-6 md:px-12">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Stay Connected. Spread Peace.</h3>
