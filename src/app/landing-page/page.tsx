@@ -30,7 +30,7 @@ export default function LandingPage() {
           <h2 className="text-xl md:text-2xl opacity-80 mb-8">
             Join a global community of dreamers, activists, and builders working together to spark positive change through decentralized collaboration.
           </h2>
-          <Link href="/" className="inline-block px-8 py-4 bg-[#FFAB40] text-white rounded-full text-lg font-semibold hover:bg-[#00E5FF] transition-colors">
+          <Link href="/join-dao" className="inline-block px-8 py-4 bg-[#FFAB40] text-white rounded-full text-lg font-semibold hover:bg-[#00E5FF] transition-colors">
             Join the DAO
           </Link>
           <p className="mt-6 max-w-2xl mx-auto">
