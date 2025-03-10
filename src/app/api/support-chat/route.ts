@@ -97,7 +97,11 @@ Format your response as plain text with markdown formatting where appropriate. U
       max_tokens: 1000,
     });
 
-    return NextResponse.json({ response: response.content[0].text });
+    const textContent = response.content.find(c => c.type === 'text');
+    if (!textContent || !('text' in textContent)) {
+      throw new Error('No text content in response');
+    }
+    return NextResponse.json({ response: textContent.text });
   } catch (error) {
     console.error("Error in support chat:", error);
     return NextResponse.json(
