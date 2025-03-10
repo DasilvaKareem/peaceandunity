@@ -10,17 +10,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="min-h-screen bg-gradient-to-br from-purple-100 to-orange-50">
         <ThirdwebProvider>
-          <main
-            style={{
-              minHeight: "100vh",
-              width: "100%",
-              maxWidth: "1200px",
-              margin: "0 auto",
-              padding: "2rem",
-            }}
-          >
+          <main className="min-h-screen w-full max-w-[1200px] mx-auto">
             {children}
           </main>
         </ThirdwebProvider>

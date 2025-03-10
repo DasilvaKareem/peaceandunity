@@ -543,7 +543,7 @@ export default function WelcomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-orange-50 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-orange-50">
       <div className="max-w-7xl mx-auto">
         {/* Token Info Section */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
@@ -869,7 +869,7 @@ export default function WelcomePage() {
 
           {/* Support Tab */}
           {activeTab === 'support' && (
-            <div className="h-[600px]">
+            <div className="h-[calc(100vh-16rem)]">
               <SupportChat embedded={true} />
             </div>
           )}

@@ -185,7 +185,7 @@ async function makeGroqRequest(payload: GroqPayload) {
   if (!GROQ_API_KEY) {
     throw new Error('GROQ_API_KEY environment variable not set.');
   }
-
+  
   const response = await fetch(GROQ_API_URL, {
     method: 'POST',
     headers: {
@@ -198,6 +198,33 @@ async function makeGroqRequest(payload: GroqPayload) {
   if (!response.ok) {
     const errorData = await response.json();
     console.error('Groq API error:', errorData);
+    
+    // Handle specific error cases
+    if (errorData.error && errorData.error.code === 'tool_use_failed') {
+      console.log('Tool use failed. Retrying without tool calling...');
+      // Remove tools and retry if tool call failed
+      const retryPayload = { ...payload };
+      delete retryPayload.tools;
+      delete retryPayload.tool_choice;
+      
+      // Retry the request without tools
+      const retryResponse = await fetch(GROQ_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${GROQ_API_KEY}`
+        },
+        body: JSON.stringify(retryPayload)
+      });
+      
+      if (!retryResponse.ok) {
+        throw new Error(`Groq API retry failed: ${retryResponse.status}`);
+      }
+      
+      return retryResponse.json();
+    }
+    
+    // For other errors, throw with status code
     throw new Error(`Groq API error: ${response.status}`);
   }
 
@@ -236,52 +263,60 @@ export async function POST(req: NextRequest) {
   try {
     const { messages, model, searchQuery, cityFilter } = await req.json();
 
-    // If searchQuery is provided, use the GoFundMe search tool
-    if (searchQuery) {
-      // Trigger the RAG functionality via the Groq API
-      const searchResult = await callGoFundMeSearchTool(searchQuery, cityFilter);
-
-      if (searchResult && searchResult.choices && searchResult.choices[0].message.tool_calls) {
-        const toolCall = searchResult.choices[0].message.tool_calls[0];
-        if (toolCall.function.name === 'gofundme_vector_search') {
-          const toolArguments = JSON.parse(toolCall.function.arguments);
-          const goFundMeQuery = toolArguments.query;
-          const goFundMeCity = toolArguments.city;
-
-          // Call the GoFundMe API (update the endpoint as needed)
-          const goFundMeApiUrl = `http://localhost:8000/api/search?q=${goFundMeQuery}${goFundMeCity ? `&city=${goFundMeCity}` : ''}`;
-          const goFundMeApiResponse = await fetch(goFundMeApiUrl);
-
-          if (goFundMeApiResponse.ok) {
-            const goFundMeData: GoFundMeApiResponse = await goFundMeApiResponse.json();
-            const contextString = parseGoFundMeResultsToContext(goFundMeData);
-
-            // Send the GoFundMe context back to Groq for further processing
-            const chatPayload: GroqPayload = {
-              model: 'llama-3.3-70b-versatile',
-              messages: [...messages, { role: "assistant", content: contextString }]
-            };
-
-            const data = await makeGroqRequest(chatPayload);
-            return NextResponse.json({ response: data.choices[0].message.content });
-          } else {
-            console.error('Error fetching GoFundMe data:', goFundMeApiResponse.statusText);
-            return NextResponse.json({ error: 'Failed to fetch GoFundMe data' }, { status: 500 });
-          }
-        }
-      }
-      // If no tool call was made, return the original Groq response
-      return NextResponse.json({ response: searchResult });
-    }
-
-    // Regular chat functionality
-    const modelName = model === 'qwen' ? 'mixtral-8x7b-32768' : 'llama3-70b-8192';
+    // Set up the model name based on the model parameter
+    const modelName: string = (model === 'qwen') ? 'mixtral-8x7b-32768' : (model || 'llama-3.3-70b-versatile');
     console.log(`Using model: ${modelName}`);
 
-    const messagesWithSystem = messages[0]?.role === 'system'
-      ? messages
-      : [SYSTEM_MESSAGE, ...messages];
+    // Extract search query from the last user message if not explicitly provided
+    let searchTerm = searchQuery;
+    if (!searchTerm) {
+      // Find the last user message
+      for (let i = messages.length - 1; i >= 0; i--) {
+        if (messages[i].role === 'user') {
+          // Simple extraction of potential search terms
+          searchTerm = messages[i].content;
+          break;
+        }
+      }
+    }
 
+    // Only attempt to fetch GoFundMe results if we have a search term
+    let goFundMeContext = '';
+    if (searchTerm) {
+      try {
+        // Construct the GoFundMe API URL with query parameters
+        const goFundMeApiUrl = `http://127.0.0.1:8000/api/search?q=${encodeURIComponent(searchTerm)}${cityFilter ? `&city=${encodeURIComponent(cityFilter)}` : ''}`;
+        console.log('Calling GoFundMe API URL:', goFundMeApiUrl);
+        
+        const goFundMeResponse = await fetch(goFundMeApiUrl);
+        
+        if (!goFundMeResponse.ok) {
+          console.error(`GoFundMe API returned status ${goFundMeResponse.status}`);
+        } else {
+          const goFundMeData: GoFundMeApiResponse = await goFundMeResponse.json();
+          goFundMeContext = parseGoFundMeResultsToContext(goFundMeData);
+          console.log('Successfully retrieved GoFundMe data');
+        }
+      } catch (error) {
+        console.error('Error calling GoFundMe API:', error);
+      }
+    }
+
+    // Modify the system message to include GoFundMe results if available
+    let systemMessage = SYSTEM_MESSAGE;
+    if (goFundMeContext) {
+      systemMessage = {
+        role: 'system',
+        content: `${SYSTEM_MESSAGE.content}\n\nHere are some GoFundMe campaigns that might be relevant to the user's query:\n${goFundMeContext}`
+      };
+    }
+
+    // Ensure there's a system message
+    const messagesWithSystem = messages[0]?.role === 'system'
+      ? messages.map((msg: GroqMessage) => msg.role === 'system' ? systemMessage : msg)
+      : [systemMessage, ...messages];
+
+    // Create the payload for Groq API
     const chatPayload: GroqPayload = {
       model: modelName,
       messages: messagesWithSystem,
@@ -289,7 +324,10 @@ export async function POST(req: NextRequest) {
       max_tokens: 1024
     };
 
+    // Make the request to Groq
     const data = await makeGroqRequest(chatPayload);
+    
+    // Return the response content
     return NextResponse.json({ response: data.choices[0].message.content });
   } catch (error) {
     console.error('Error in chat API route:', error);

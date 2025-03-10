@@ -126,6 +126,8 @@ const SupportChat: React.FC<SupportChatProps> = ({ embedded = false }) => {
           border-radius: 8px;
           overflow: hidden;
           background: white;
+          margin: 0;
+          padding: 0;
         }
         .embedded {
           border: 1px solid #e2e8f0;
@@ -134,6 +136,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ embedded = false }) => {
           padding: 16px;
           background: #7C4DFF;
           color: white;
+          margin: 0;
         }
         .chat-messages {
           flex: 1;
@@ -142,6 +145,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ embedded = false }) => {
           background: #f8fafc;
           display: flex;
           flex-direction: column;
+          margin: 0;
         }
         .message {
           margin-bottom: 12px;
@@ -154,14 +158,17 @@ const SupportChat: React.FC<SupportChatProps> = ({ embedded = false }) => {
           background: #e9d5ff;
           align-self: center;
           width: fit-content;
+          color: black;
         }
         .user {
           background: #e2e8f0;
           align-self: flex-end;
+          color: black;
         }
         .assistant {
           background: #7C4DFF20;
           align-self: flex-start;
+          color: black;
         }
         .loading {
           background: transparent;
@@ -181,6 +188,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ embedded = false }) => {
           resize: none;
           max-height: 100px;
           min-height: 38px;
+          color: black;
         }
         button {
           background: #7C4DFF;
